@@ -1,102 +1,210 @@
-/* Set the main colors and font used throughout the page. */
 :root {
     color-scheme: dark;
     font-family: Arial, sans-serif;
     background-color: #0b1220;
     color: #f4f7fb;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
 }
 
-/* Keep text readable and make element sizing easier to manage. */
 * {
     box-sizing: border-box;
 }
 
 body {
+    min-width: 320px;
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
-/* Center the navigation links and give the bar a darker background. */
 nav {
-    background-color: #111c2e;
+    position: sticky;
+    top: 0;
+    z-index: 1;
     border-bottom: 1px solid #263750;
+    background-color: rgb(17 28 46 / 96%);
+    backdrop-filter: blur(10px);
 }
 
 nav ul {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-end;
     flex-wrap: wrap;
-    gap: 1.5rem;
-    max-width: 900px;
+    gap: 0.5rem 1.5rem;
+    width: min(100% - 2rem, 1000px);
+    min-height: 4.25rem;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 0.75rem 0;
     list-style: none;
 }
 
+nav .nav-brand {
+    margin-right: auto;
+}
+
+nav .nav-brand a {
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
 nav a {
+    display: inline-block;
+    padding: 0.35rem 0;
     color: #dbeafe;
     font-weight: bold;
     text-decoration: none;
+    transition: color 160ms ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus-visible {
     color: #60a5fa;
 }
 
-/* Give the page content a comfortable width and space between sections. */
+a:focus-visible {
+    outline: 2px solid #93c5fd;
+    outline-offset: 4px;
+}
+
 main {
     width: min(100% - 2rem, 900px);
-    margin: 2rem auto;
+    margin: 2.5rem auto;
 }
 
 section {
     margin-bottom: 1.5rem;
-    padding: 2rem;
+    padding: clamp(1.5rem, 5vw, 2.5rem);
     border: 1px solid #263750;
-    border-radius: 12px;
+    border-radius: 16px;
     background-color: #111c2e;
+    scroll-margin-top: 5.5rem;
 }
 
 section h2 {
-    margin-top: 0;
+    margin: 0 0 0.75rem;
     color: #60a5fa;
+    font-size: clamp(1.5rem, 4vw, 1.9rem);
+    line-height: 1.25;
 }
 
-/* Make the name the most prominent heading on the page. */
+section p {
+    max-width: 65ch;
+}
+
+.hero {
+    padding-top: clamp(2.5rem, 8vw, 5rem);
+    padding-bottom: clamp(2.5rem, 8vw, 5rem);
+    background: linear-gradient(135deg, #14243b, #111c2e 70%);
+}
+
+.hero .eyebrow,
+.project-type {
+    margin: 0 0 0.5rem;
+    color: #93c5fd;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
 #home h1 {
     margin: 0;
     color: #ffffff;
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(2.75rem, 10vw, 4.5rem);
     line-height: 1.1;
 }
 
 #home h2 {
-    margin: 0.5rem 0 1rem;
-    color: #93c5fd;
+    margin: 0.65rem 0 1rem;
+    color: #bfdbfe;
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
 }
 
-/* Display each technology in its own simple card. */
-#skills ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+.hero > p:not(.eyebrow) {
+    margin-bottom: 1.5rem;
+    color: #cbd5e1;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.7rem 1rem;
+    border: 1px solid #60a5fa;
+    border-radius: 8px;
+    background-color: #1d4ed8;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    background-color: #2563eb;
+}
+
+.section-intro {
+    margin-top: 0;
+    color: #b8c4d6;
+}
+
+#skills ul,
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.75rem;
-    margin: 0;
+    margin: 1.25rem 0 0;
     padding: 0;
     list-style: none;
 }
 
-#skills li {
-    padding: 0.75rem 1rem;
+#skills li,
+.project-tags li {
+    padding: 0.55rem 0.9rem;
     border: 1px solid #315078;
-    border-radius: 8px;
+    border-radius: 999px;
     background-color: #172943;
-    text-align: center;
+    color: #dbeafe;
+    font-weight: bold;
 }
 
-/* Make the contact link easy to spot. */
-#contact a {
-    color: #93c5fd;
-    font-weight: bold;
+.project-card {
+    padding: 1.5rem;
+    border: 1px solid #315078;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #172943, #132238);
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: #60a5fa;
+    box-shadow: 0 12px 28px rgb(0 0 0 / 24%);
+}
+
+.project-card h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.35rem;
+}
+
+.project-card > p:not(.project-type) {
+    margin-bottom: 0;
+    color: #cbd5e1;
+}
+
+.project-tags {
+    margin-top: 1rem;
+}
+
+.project-tags li {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
+}
+
+#contact .button {
+    margin-top: 0.5rem;
+    overflow-wrap: anywhere;
 }
 
 footer {
@@ -106,17 +214,49 @@ footer {
     text-align: center;
 }
 
-/* Reduce section padding on narrow screens such as phones. */
+footer p {
+    margin: 0;
+}
+
 @media (max-width: 600px) {
     nav ul {
-        gap: 0.75rem 1.25rem;
+        justify-content: center;
+        gap: 0.35rem 1rem;
+        padding: 0.65rem 0;
+    }
+
+    nav .nav-brand {
+        flex-basis: 100%;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    nav a {
+        font-size: 0.95rem;
     }
 
     main {
-        margin: 1rem auto;
+        margin: 1.25rem auto;
     }
 
     section {
+        margin-bottom: 1rem;
+        border-radius: 12px;
+    }
+
+    .project-card {
         padding: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
     }
 }
