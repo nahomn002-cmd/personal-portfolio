@@ -103,13 +103,61 @@
 
         <section id="contact">
             <h2>Contact</h2>
-            <p>If you would like to connect, you can reach me by email.</p>
+            <p class="contact-intro">
+                Have a question or want to connect? I’d be happy to hear from you.
+                You can email me or leave a message below.
+            </p>
             <a class="button" href="mailto:nahomn002@gmail.com">nahomn002@gmail.com</a>
+            <form id="contact-form">
+                <div class="form-field">
+                    <label for="contact-name">Name</label>
+                    <input
+                        id="contact-name"
+                        name="name"
+                        type="text"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+                <div class="form-field">
+                    <label for="contact-email">Email</label>
+                    <input
+                        id="contact-email"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+                <div class="form-field">
+                    <label for="contact-message">Message</label>
+                    <textarea
+                        id="contact-message"
+                        name="message"
+                        rows="5"
+                        required
+                    ></textarea>
+                </div>
+                <button class="button" type="submit">Submit</button>
+                <p id="contact-form-status" class="form-status" aria-live="polite">
+                    This demo form is not connected to a message service, so it will not send your message.
+                </p>
+            </form>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Nahom. All rights reserved.</p>
     </footer>
+    <script>
+        const contactForm = document.querySelector("#contact-form");
+        const contactFormStatus = document.querySelector("#contact-form-status");
+
+        contactForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            contactFormStatus.textContent =
+                "Thanks for trying the form! It is not connected to a message service yet.";
+        });
+    </script>
 </body>
 </html>
