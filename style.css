@@ -12,9 +12,14 @@
 }
 
 body {
-    min-width: 320px;
     margin: 0;
     line-height: 1.7;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 nav {
@@ -49,7 +54,9 @@ nav .nav-brand a {
 }
 
 nav a {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     padding: 0.35rem 0;
     color: #dbeafe;
     font-weight: bold;
@@ -240,6 +247,7 @@ section p {
 }
 
 .project-card {
+    min-width: 0;
     padding: 1.5rem;
     border: 1px solid #315078;
     border-radius: 12px;
@@ -317,7 +325,8 @@ section p {
 }
 
 .form-field input:focus-visible,
-.form-field textarea:focus-visible {
+.form-field textarea:focus-visible,
+#contact-form .button:focus-visible {
     outline: 2px solid #93c5fd;
     outline-offset: 2px;
 }
@@ -342,6 +351,12 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+@media (max-width: 800px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 600px) {
@@ -374,16 +389,16 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-    .skills-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .project-card {
         padding: 1.25rem;
     }
 }
 
 @media (max-width: 400px) {
+    section {
+        padding: 1rem;
+    }
+
     .skills-grid {
         grid-template-columns: 1fr;
     }
