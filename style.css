@@ -11,6 +11,23 @@
     box-sizing: border-box;
 }
 
+.skip-link {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 2;
+    padding: 0.6rem 0.9rem;
+    transform: translateY(-150%);
+    border-radius: 8px;
+    background-color: #1d4ed8;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
 body {
     margin: 0;
     line-height: 1.7;

@@ -7,24 +7,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav aria-label="Main navigation">
-        <ul>
-            <li class="nav-brand"><a href="#home">Nahom</a></li>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li class="nav-brand"><a href="#home">Nahom</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <section id="home" class="hero">
             <p class="eyebrow">Welcome to my portfolio</p>
             <h1>Nahom</h1>
             <h2>Software Engineering Student</h2>
             <p>Hello! I am learning web development and building my skills one step at a time.</p>
-            <a class="button" href="#projects">View my project</a>
+            <a class="button" href="#projects">View my projects</a>
         </section>
 
         <section id="about" class="about-section">
@@ -107,7 +110,7 @@
                 Have a question or want to connect? I’d be happy to hear from you.
                 You can email me or leave a message below.
             </p>
-            <a class="button" href="mailto:nahomn002@gmail.com">nahomn002@gmail.com</a>
+            <a class="button" href="mailto:nahomn002@gmail.com">Email Nahom: nahomn002@gmail.com</a>
             <form id="contact-form">
                 <div class="form-field">
                     <label for="contact-name">Name</label>
@@ -138,7 +141,7 @@
                         required
                     ></textarea>
                 </div>
-                <button class="button" type="submit">Submit</button>
+                <button class="button" type="submit">Show demo response</button>
                 <p id="contact-form-status" class="form-status" aria-live="polite">
                     This demo form is not connected to a message service, so it will not send your message.
                 </p>
