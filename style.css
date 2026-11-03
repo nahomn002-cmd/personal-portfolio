@@ -30,6 +30,7 @@
 
 body {
     margin: 0;
+    font-size: 1rem;
     line-height: 1.7;
 }
 
@@ -97,7 +98,7 @@ main {
 }
 
 section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
     padding: clamp(1.5rem, 5vw, 2.5rem);
     border: 1px solid #263750;
     border-radius: 16px;
@@ -114,6 +115,7 @@ section h2 {
 
 section p {
     max-width: 65ch;
+    line-height: 1.7;
 }
 
 .about-section {
@@ -132,14 +134,26 @@ section p {
     gap: 1rem;
 }
 
-.about-card {
+.about-card,
+.skill-card,
+.project-card {
+    min-width: 0;
     padding: 1.25rem;
     border: 1px solid #315078;
     border-radius: 12px;
-    background-color: rgb(23 41 67 / 70%);
+    background: linear-gradient(145deg, #172943, #132238);
+    transition: border-color 180ms ease;
 }
 
-.about-card h3 {
+.about-card:hover,
+.skill-card:hover,
+.project-card:hover {
+    border-color: #60a5fa;
+}
+
+.about-card h3,
+.skill-card h3,
+.project-card h3 {
     margin: 0 0 0.5rem;
     color: #93c5fd;
     font-size: 1.1rem;
@@ -185,18 +199,26 @@ section p {
 }
 
 .button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    max-width: 100%;
     padding: 0.7rem 1rem;
     border: 1px solid #60a5fa;
     border-radius: 8px;
     background-color: #1d4ed8;
     color: #ffffff;
+    font-size: 1rem;
     font-weight: bold;
     text-decoration: none;
+    text-align: center;
+    overflow-wrap: anywhere;
     transition: background-color 160ms ease, transform 160ms ease;
 }
 
-.button:hover {
+.button:hover,
+.button:focus-visible {
     transform: translateY(-2px);
     background-color: #2563eb;
 }
@@ -225,28 +247,8 @@ section p {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
+    gap: 1rem;
     margin-top: 1.25rem;
-}
-
-.skill-card {
-    padding: 1.25rem;
-    border: 1px solid #315078;
-    border-radius: 12px;
-    background: linear-gradient(145deg, #172943, #132238);
-    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-3px);
-    border-color: #60a5fa;
-    box-shadow: 0 10px 24px rgb(0 0 0 / 20%);
-}
-
-.skill-card h3 {
-    margin: 0 0 0.5rem;
-    color: #93c5fd;
-    font-size: 1.1rem;
 }
 
 .skill-card p {
@@ -261,27 +263,6 @@ section p {
     background-color: #172943;
     color: #dbeafe;
     font-weight: bold;
-}
-
-.project-card {
-    min-width: 0;
-    padding: 1.5rem;
-    border: 1px solid #315078;
-    border-radius: 12px;
-    background: linear-gradient(145deg, #172943, #132238);
-    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: #60a5fa;
-    box-shadow: 0 12px 28px rgb(0 0 0 / 24%);
-}
-
-.project-card h3 {
-    margin: 0;
-    color: #ffffff;
-    font-size: 1.35rem;
 }
 
 .project-card > p:not(.project-type) {
@@ -300,7 +281,6 @@ section p {
 
 #contact > .button {
     margin-top: 0.5rem;
-    overflow-wrap: anywhere;
 }
 
 .contact-intro {
@@ -406,9 +386,6 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-    .project-card {
-        padding: 1.25rem;
-    }
 }
 
 @media (max-width: 400px) {
