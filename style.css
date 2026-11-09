@@ -165,9 +165,16 @@ section p {
 }
 
 .hero {
-    padding-top: clamp(2.5rem, 8vw, 5rem);
-    padding-bottom: clamp(2.5rem, 8vw, 5rem);
-    background: linear-gradient(135deg, #14243b, #111c2e 70%);
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.85fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 4rem);
+    min-height: 28rem;
+    padding: clamp(2rem, 6vw, 4rem);
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 82% 18%, rgb(37 99 235 / 22%), transparent 36%),
+        linear-gradient(135deg, #14243b, #111c2e 72%);
 }
 
 .hero .eyebrow,
@@ -181,21 +188,122 @@ section p {
 }
 
 #home h1 {
-    margin: 0;
+    margin: 0 0 0.35rem;
     color: #ffffff;
-    font-size: clamp(2.75rem, 10vw, 4.5rem);
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
     line-height: 1.1;
+    letter-spacing: -0.06em;
 }
 
 #home h2 {
-    margin: 0.65rem 0 1rem;
+    margin: 0 0 1rem;
     color: #bfdbfe;
-    font-size: clamp(1.25rem, 4vw, 1.75rem);
+    font-size: clamp(1.2rem, 2.8vw, 1.65rem);
+    line-height: 1.35;
 }
 
-.hero > p:not(.eyebrow) {
-    margin-bottom: 1.5rem;
+.hero-intro {
+    max-width: 39rem;
+    margin: 0 0 1.75rem;
     color: #cbd5e1;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.button-secondary {
+    border-color: #52749f;
+    background-color: rgb(17 28 46 / 55%);
+    color: #dbeafe;
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+    border-color: #93c5fd;
+    background-color: #172943;
+}
+
+.hero-visual {
+    position: relative;
+    display: grid;
+    min-height: 19rem;
+    place-items: center;
+}
+
+.hero-visual::before,
+.hero-visual::after {
+    position: absolute;
+    border: 1px solid rgb(147 197 253 / 22%);
+    border-radius: 50%;
+    content: "";
+}
+
+.hero-visual::before {
+    width: min(100%, 18rem);
+    aspect-ratio: 1;
+}
+
+.hero-visual::after {
+    width: min(85%, 15rem);
+    aspect-ratio: 1;
+}
+
+.hero-visual-card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: min(78%, 13rem);
+    aspect-ratio: 0.82;
+    border: 1px solid rgb(191 219 254 / 45%);
+    border-radius: 48% 48% 1.25rem 1.25rem;
+    background:
+        radial-gradient(circle at 50% 34%, rgb(96 165 250 / 36%), transparent 35%),
+        linear-gradient(155deg, #203b5e, #12223a 72%);
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 28%), inset 0 1px rgb(255 255 255 / 12%);
+}
+
+.hero-photo {
+    position: relative;
+    z-index: 1;
+    width: min(78%, 13rem);
+    aspect-ratio: 0.82;
+    border: 1px solid rgb(191 219 254 / 45%);
+    border-radius: 48% 48% 1.25rem 1.25rem;
+    object-fit: cover;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 28%);
+}
+
+.hero-visual-label,
+.hero-photo-prompt {
+    color: #bfdbfe;
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hero-initial {
+    color: #ffffff;
+    font-size: clamp(5rem, 10vw, 7rem);
+    font-weight: bold;
+    letter-spacing: -0.08em;
+    line-height: 1.2;
+    text-shadow: 0 0 2rem rgb(96 165 250 / 55%);
+}
+
+.hero-photo-prompt {
+    max-width: 9rem;
+    color: #dbeafe;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
 }
 
 .button {
@@ -351,12 +459,40 @@ footer p {
 }
 
 @media (max-width: 800px) {
+    .hero {
+        grid-template-columns: minmax(0, 1.1fr) minmax(12rem, 0.9fr);
+        gap: 1.5rem;
+        padding: clamp(1.5rem, 5vw, 2.5rem);
+    }
+
     .skills-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 600px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        min-height: 0;
+    }
+
+    .hero-visual {
+        min-height: 16rem;
+    }
+
+    .hero-visual::before {
+        width: min(100%, 15rem);
+    }
+
+    .hero-visual::after {
+        width: min(85%, 12.5rem);
+    }
+
+    .hero-visual-card {
+        width: min(70%, 11rem);
+    }
+
     nav ul {
         justify-content: center;
         gap: 0.35rem 1rem;
