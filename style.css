@@ -347,7 +347,7 @@ section p {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
     gap: 1rem;
     margin-top: 1.25rem;
 }
@@ -376,6 +376,62 @@ section p {
 .project-card > p:not(.project-type) {
     margin-bottom: 0;
     color: #cbd5e1;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.project-card-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.project-card-heading h3 {
+    margin-bottom: 0;
+}
+
+.project-status {
+    flex: 0 0 auto;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid #315078;
+    border-radius: 999px;
+    background-color: #172943;
+    color: #bfdbfe;
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.project-status-in-progress {
+    border-color: #52749f;
+    background-color: #203b5e;
+    color: #dbeafe;
+}
+
+.project-technologies {
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.project-technologies h4 {
+    margin: 0;
+    color: #b8c4d6;
+    font-size: 0.85rem;
+}
+
+.project-technologies .project-tags {
+    margin-top: 0.5rem;
+}
+
+.project-tag-placeholder {
+    border-style: dashed !important;
+    color: #b8c4d6 !important;
+    font-weight: normal !important;
 }
 
 .project-tags {
