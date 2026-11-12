@@ -118,6 +118,7 @@
                             <li>C++</li>
                         </ul>
                     </div>
+                    <button class="button project-details-button" type="button">View Details</button>
                 </article>
                 <article class="project-card">
                     <div class="project-card-heading">
@@ -131,6 +132,7 @@
                             <li>MySQL</li>
                         </ul>
                     </div>
+                    <button class="button project-details-button" type="button">View Details</button>
                 </article>
                 <article class="project-card">
                     <div class="project-card-heading">
@@ -142,13 +144,29 @@
                         the cafe, showcasing its products, and helping customers explore its offerings.
                     </p>
                     <div class="project-technologies">
-                        <h4>Technologies (edit when confirmed)</h4>
+                        <h4>Technologies</h4>
                         <ul class="project-tags" aria-label="Technologies used">
-                            <li class="project-tag-placeholder">Add implemented technologies</li>
+                            <li class="project-tag-placeholder">Not confirmed yet</li>
                         </ul>
                     </div>
+                    <button class="button project-details-button" type="button">View Details</button>
                 </article>
             </div>
+            <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title">
+                <div class="project-dialog-panel">
+                    <button class="project-dialog-close" type="button" aria-label="Close project details">
+                        &times;
+                    </button>
+                    <p class="project-dialog-eyebrow">Project details</p>
+                    <h3 id="project-dialog-title"></h3>
+                    <p id="project-dialog-status" class="project-status"></p>
+                    <p id="project-dialog-description"></p>
+                    <div class="project-technologies">
+                        <h4>Technologies</h4>
+                        <ul class="project-tags" id="project-dialog-technologies" aria-label="Technologies used"></ul>
+                    </div>
+                </div>
+            </dialog>
         </section>
 
         <section id="contact">
@@ -202,6 +220,52 @@
     <script>
         const contactForm = document.querySelector("#contact-form");
         const contactFormStatus = document.querySelector("#contact-form-status");
+        const projectDialog = document.querySelector("#project-dialog");
+        const projectDialogTitle = document.querySelector("#project-dialog-title");
+        const projectDialogStatus = document.querySelector("#project-dialog-status");
+        const projectDialogDescription = document.querySelector("#project-dialog-description");
+        const projectDialogTechnologies = document.querySelector("#project-dialog-technologies");
+
+        document.querySelectorAll(".project-details-button").forEach((button) => {
+            button.addEventListener("click", () => {
+                const projectCard = button.closest(".project-card");
+                const projectStatus = projectCard.querySelector(".project-status");
+
+                projectDialogTitle.textContent = projectCard.querySelector("h3").textContent;
+                projectDialogStatus.textContent = projectStatus.textContent;
+                projectDialogStatus.className = projectStatus.className;
+                projectDialogDescription.textContent =
+                    projectCard.querySelector(":scope > p").textContent.trim();
+                projectDialogTechnologies.replaceChildren();
+
+                projectCard.querySelectorAll(".project-tags li").forEach((technology) => {
+                    const item = document.createElement("li");
+                    item.textContent = technology.textContent;
+                    if (technology.classList.contains("project-tag-placeholder")) {
+                        item.classList.add("project-tag-placeholder");
+                    }
+                    projectDialogTechnologies.append(item);
+                });
+
+                projectDialog.showModal();
+            });
+        });
+
+        projectDialog.querySelector(".project-dialog-close").addEventListener("click", () => {
+            projectDialog.close();
+        });
+
+        projectDialog.addEventListener("click", (event) => {
+            if (event.target === projectDialog) {
+                projectDialog.close();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && projectDialog.open) {
+                projectDialog.close();
+            }
+        });
 
         contactForm.addEventListener("submit", (event) => {
             event.preventDefault();

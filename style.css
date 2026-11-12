@@ -384,6 +384,98 @@ section p {
     gap: 0.75rem;
 }
 
+.project-details-button {
+    align-self: flex-start;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    font: inherit;
+}
+
+.project-details-button:focus-visible,
+.project-dialog-close:focus-visible {
+    outline: 2px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+.project-dialog {
+    width: min(34rem, calc(100% - 2rem));
+    max-width: none;
+    max-height: min(42rem, calc(100% - 2rem));
+    padding: 0;
+    overflow: auto;
+    border: 1px solid #52749f;
+    border-radius: 16px;
+    background: #111c2e;
+    color: #f4f7fb;
+    box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 45%);
+}
+
+.project-dialog::backdrop {
+    background-color: rgb(5 10 18 / 76%);
+    backdrop-filter: blur(4px);
+}
+
+.project-dialog-panel {
+    position: relative;
+    padding: clamp(1.5rem, 5vw, 2.25rem);
+    background:
+        radial-gradient(ellipse at 100% 0, rgb(37 99 235 / 18%), transparent 42%),
+        linear-gradient(145deg, #14243b, #111c2e 72%);
+}
+
+.project-dialog-close {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-left: auto;
+    place-items: center;
+    border: 1px solid #52749f;
+    border-radius: 8px;
+    background-color: #172943;
+    color: #ffffff;
+    font: inherit;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.project-dialog-close:hover,
+.project-dialog-close:focus-visible {
+    border-color: #93c5fd;
+    background-color: #203b5e;
+}
+
+.project-dialog-eyebrow {
+    margin: 0 0 0.5rem;
+    color: #93c5fd;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.project-dialog h3 {
+    margin: 0 0 0.75rem;
+    color: #ffffff;
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+    line-height: 1.25;
+}
+
+.project-dialog #project-dialog-status {
+    display: inline-flex;
+    margin: 0 0 1rem;
+}
+
+.project-dialog #project-dialog-description {
+    margin: 0 0 1.25rem;
+    color: #cbd5e1;
+}
+
+.project-dialog .project-technologies {
+    margin-top: 0;
+}
+
 .project-card-heading {
     display: flex;
     align-items: flex-start;
