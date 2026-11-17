@@ -359,9 +359,94 @@ section p {
     margin-top: 1.25rem;
 }
 
-.skill-card p {
+.skill-category {
+    padding: 1.25rem;
+}
+
+.skill-category h3 {
+    min-height: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
     margin: 0;
-    color: #cbd5e1;
+    padding: 0;
+    list-style: none;
+}
+
+.skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 2.75rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid #315078;
+    border-radius: 10px;
+    background-color: rgb(11 18 32 / 65%);
+    color: #dbeafe;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.skill-badge:hover {
+    transform: translateY(-3px);
+    border-color: #60a5fa;
+    background-color: #172943;
+}
+
+.skill-icon {
+    display: grid;
+    flex: 0 0 1.75rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    place-items: center;
+    border-radius: 6px;
+    background-color: #203b5e;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.skill-icon-html {
+    background-color: #e34f26;
+}
+
+.skill-icon-css {
+    background-color: #1572b6;
+}
+
+.skill-icon-javascript {
+    background-color: #f7df1e;
+    color: #111827;
+}
+
+.skill-icon-cpp {
+    background-color: #00599c;
+    font-size: 0.62rem;
+}
+
+.skill-icon-php {
+    background-color: #777bb4;
+    font-size: 0.55rem;
+}
+
+.skill-icon-git {
+    background-color: #f05032;
+    font-size: 0.58rem;
+}
+
+.skill-icon-github {
+    background-color: #30363d;
+    font-size: 0.62rem;
+}
+
+.skill-icon-vscode {
+    background-color: #007acc;
 }
 
 .project-tags li {
@@ -667,6 +752,10 @@ footer p {
     }
 
     .about-details {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
         grid-template-columns: 1fr;
     }
 
