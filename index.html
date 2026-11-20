@@ -38,12 +38,8 @@
                     <a class="button button-secondary" href="#contact">Contact Me</a>
                 </div>
             </div>
-            <div class="hero-visual" role="img" aria-label="Profile photo placeholder for Nahom">
-                <div class="hero-visual-card">
-                    <span class="hero-visual-label">A little about me</span>
-                    <span class="hero-initial" aria-hidden="true">N</span>
-                    <span class="hero-photo-prompt">Your photo can go here</span>
-                </div>
+            <div class="hero-visual">
+                <img class="hero-photo" src="images/my-photo.jpg" alt="Portrait of me">
             </div>
         </section>
 
@@ -238,9 +234,23 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Nahom. All rights reserved.</p>
+        <div class="footer-content">
+            <a class="footer-brand" href="#home">Nahom</a>
+            <nav class="footer-navigation" aria-label="Footer navigation">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <p class="footer-copyright">&copy; <span id="current-year">2026</span> Nahom. All rights reserved.</p>
+        </div>
     </footer>
     <script>
+        document.querySelector("#current-year").textContent = new Date().getFullYear();
+
         const contactForm = document.querySelector("#contact-form");
         const contactFormStatus = document.querySelector("#contact-form-status");
         const projectDialog = document.querySelector("#project-dialog");

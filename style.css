@@ -252,23 +252,6 @@ section p {
     aspect-ratio: 1;
 }
 
-.hero-visual-card {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: min(78%, 13rem);
-    aspect-ratio: 0.82;
-    border: 1px solid rgb(191 219 254 / 45%);
-    border-radius: 48% 48% 1.25rem 1.25rem;
-    background:
-        radial-gradient(circle at 50% 34%, rgb(96 165 250 / 36%), transparent 35%),
-        linear-gradient(155deg, #203b5e, #12223a 72%);
-    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 28%), inset 0 1px rgb(255 255 255 / 12%);
-}
-
 .hero-photo {
     position: relative;
     z-index: 1;
@@ -278,32 +261,6 @@ section p {
     border-radius: 48% 48% 1.25rem 1.25rem;
     object-fit: cover;
     box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 28%);
-}
-
-.hero-visual-label,
-.hero-photo-prompt {
-    color: #bfdbfe;
-    font-size: 0.72rem;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.hero-initial {
-    color: #ffffff;
-    font-size: clamp(5rem, 10vw, 7rem);
-    font-weight: bold;
-    letter-spacing: -0.08em;
-    line-height: 1.2;
-    text-shadow: 0 0 2rem rgb(96 165 250 / 55%);
-}
-
-.hero-photo-prompt {
-    max-width: 9rem;
-    color: #dbeafe;
-    font-size: 0.62rem;
-    letter-spacing: 0.06em;
 }
 
 .button {
@@ -681,14 +638,58 @@ section p {
 }
 
 footer {
-    padding: 1rem;
+    padding: clamp(2rem, 5vw, 3rem) 1rem;
     border-top: 1px solid #263750;
+    background-color: #0e192a;
     color: #b8c4d6;
     text-align: center;
 }
 
-footer p {
+footer .footer-content {
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    width: min(100%, 900px);
+    margin: 0 auto;
+}
+
+footer .footer-brand {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer .footer-navigation {
+    position: static;
+    z-index: auto;
+    border: 0;
+    background: transparent;
+    backdrop-filter: none;
+}
+
+footer .footer-navigation ul {
+    justify-content: center;
+    gap: 0.25rem 1.25rem;
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer .footer-navigation a {
+    color: #dbeafe;
+    font-size: 0.95rem;
+}
+
+footer .footer-navigation a:hover,
+footer .footer-navigation a:focus-visible {
+    color: #60a5fa;
+}
+
+footer .footer-copyright {
     margin: 0;
+    font-size: 0.9rem;
 }
 
 @media (max-width: 800px) {
@@ -720,10 +721,6 @@ footer p {
 
     .hero-visual::after {
         width: min(85%, 12.5rem);
-    }
-
-    .hero-visual-card {
-        width: min(70%, 11rem);
     }
 
     nav ul {
