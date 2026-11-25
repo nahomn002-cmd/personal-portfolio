@@ -568,10 +568,6 @@ section p {
     font-weight: normal !important;
 }
 
-.project-tags {
-    margin-top: 1rem;
-}
-
 .project-tags li {
     padding: 0.3rem 0.7rem;
     font-size: 0.85rem;
@@ -761,10 +757,6 @@ footer .footer-copyright {
 @media (max-width: 400px) {
     section {
         padding: 1rem;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
     }
 }
 
